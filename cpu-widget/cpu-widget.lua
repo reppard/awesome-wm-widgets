@@ -47,7 +47,10 @@ local function worker(args)
         step_width = step_width,
         step_spacing = step_spacing,
         widget = wibox.widget.graph,
-        color = "linear:0,0:0,20:0,#FF0000:0.3,#FFFF00:0.6," .. color
+        color = "linear:0,0:0,20:0,"
+          .. beautiful.fg_normal
+          .. ":0.3," .. beautiful.bg_urgent
+          .. ":0.6," .. color
     }
 
     local cpu_rows = {
@@ -93,7 +96,8 @@ local function worker(args)
         visible = false,
         shape = gears.shape.rounded_rect,
         border_width = 1,
-        border_color = beautiful.bg_normal,
+        border_color = beautiful.bg_focus,
+        bg = '#1e252c',
         maximum_width = 300,
         offset = { y = 5 },
         widget = {}
@@ -169,7 +173,8 @@ local function worker(args)
                                 background_color = beautiful.bg_normal,
                                 bar_border_width = 1,
                                 bar_border_color = beautiful.bg_focus,
-                                color = "linear:150,0:0,0:0,#D08770:0.3,#BF616A:0.6," .. beautiful.fg_normal,
+                                color = "linear:150,0:0,0:0,#D08770:0.3,"
+                                  .. beautiful.bg_urgent .. ":0.6," .. beautiful.fg_normal,
                                 widget = wibox.widget.progressbar,
 
                             },
